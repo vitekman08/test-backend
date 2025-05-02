@@ -24,6 +24,7 @@ object DatabaseFactory {
             .locations("classpath:db/migration")
 //            .baselineOnMigrate(true)
             .outOfOrder(true)
+            .cleanDisabled(false)  // !!!Установлен только для тестов. В продакшене не стоит так делать!!!!
             .load()
 
         if (appConfig.property("flyway.clean").getString().toBoolean()) {
