@@ -1,0 +1,8 @@
+CREATE TABLE author (
+    id SERIAL PRIMARY KEY,
+    full_name VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+ALTER TABLE budget ADD COLUMN author_id INT;
+ALTER TABLE budget ADD CONSTRAINT fk_author FOREIGN KEY (author_id) REFERENCES author(id);
